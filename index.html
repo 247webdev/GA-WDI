@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <link href="styling.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		var slideimages = new Array(); // new array of images
+		slideimages[0] = new Image(); // new instance of this image object
+		slideimages[0].src = "cuenca-Llama.jpg"; // set image object src property to an image's src, preloading that image in the process
+		slideimages[1] = new Image();
+		slideimages[1].src = "otavalo-Casa.jpg";
+		slideimages[2] = new Image();
+		slideimages[2].src = "pululahua-Crater.jpg";
+
+		//variable that will increment through the images
+		var step = 0
+		var whichimage = 0
+
+		function changeImg(){
+		 //if browser does not support the image object, exit.
+		 if (!document.images)
+		  return
+		 document.getElementById('slide').src = slideimages[step].src
+		 whichimage = step
+		 if (step<2)
+		  step++
+		 else
+		  step=0
+		 setTimeout("changeImg()",5000)  // change image using function "changeImg()" every 5 seconds
+		}
+
+		changeImg()
+	</script>
+</head>
+
+<body>
+	<img src="cuenca-Llama.jpg" id="slide" width=400 />
+</body>
+</html>
